@@ -59,11 +59,10 @@ resource "akamai_gtm_datacenter" "dc_vinkeveen" {
 }
 
 # lookup the default datacenter for a GTM domain
-# for the 'maps' the default id will be 5400, ip-selector 5401 and ip-version 5402
-# default is 5400 (maps)
+# for the 'maps' the id should be 5400, ip-selector 5401 and ip-version 5402
+# default 'datacenter' is 5400 (maps)
 data "akamai_gtm_default_datacenter" "example_ddc" {
   domain = resource.akamai_gtm_domain.gtm_domain.name
-
 }
 
 # cidr map with the default DC and our two other DC's with subnets assigned to it.
